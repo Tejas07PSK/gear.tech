@@ -3,14 +3,33 @@
   "name" : "gear.tech",
   "version" : "1.0.0",
   "description" : "A simple 'URL' shortening web-app.",
-  "keywords" : [ "URL", "Short-URL", "web-app", "nodeJS", "expressJs", "naive-app" ],
+  "keywords" : [ "URL",  "Short-URL",  "web-app", "nodeJS", "expressJs", "naive-app" ],
   "license" : "MIT",
-  "author" : { "name" : "Palash Sarkar", "email" : "palashsarkar0007@gmail.com", "url" : "https://github.com/Tejas07PSK" },
+  "author" : {
+
+    "name" : "Palash Sarkar",
+    "email" : "palashsarkar0007@gmail.com",
+    "url" : "https://github.com/Tejas07PSK"
+
+  },
   "files" : [ "*" ],
   "main" : "./bin/www",
-  "bin" : { "gear.tech" : "./bin/www" },
-  "repository" : { "type" : "git", "url" : "https://github.com/Tejas07PSK/gear.tech" },
-  "config" : { "port" : "3000" },
+  "bin" : {
+
+    "gear.tech" : "./bin/www"
+
+  },
+  "repository" : {
+
+    "type" : "git",
+    "url" : "https://github.com/Tejas07PSK/gear.tech"
+
+  },
+  "config" : {
+
+    "port" : "3000"
+
+  },
   "private" : true,
   "scripts" : {
 
@@ -18,7 +37,7 @@
 
   },
   "dependencies" : {
-
+    
     "cookie-parser" : "~1.4.3",
     "debug" : "~2.6.9",
     "ejs" : "~2.5.7",
@@ -40,6 +59,6 @@
 
   },
   "os" : [ "darwin", "linux" ],
-  "cpu" : [ "x64", "x86" ]
+  "cpu": [ "x64", "x86" ]
 
 }
