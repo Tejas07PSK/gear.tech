@@ -33,11 +33,12 @@
   "private" : true,
   "scripts" : {
 
-    "start" : "nodemon ./bin/www"
+    "start" : "node ./bin/www",
+    "ndm" : "nodemon ./bin/www"
 
   },
   "dependencies" : {
-    
+
     "cookie-parser" : "~1.4.3",
     "debug" : "~2.6.9",
     "ejs" : "~2.5.7",
