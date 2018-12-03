@@ -209,7 +209,7 @@ module.exports = {
                 }
                 md = (bigInt(h[0])).shiftLeft(128); md = md.or((bigInt(h[1])).shiftLeft(96));
                 md = md.or((bigInt(h[2])).shiftLeft(64)); md = md.or((bigInt(h[3])).shiftLeft(32)); md = md.or(bigInt(h[4]));
-                obj = {"message" : message, "md" : {"hex" : hexOrBase64Converter(md, 16), "base64" : hexOrBase64Converter(md, 64)}};
+                obj = {"message" : message, "md" : {"hex" : this.hexOrBase64Converter(md, 16), "base64" : this.hexOrBase64Converter(md, 64)}};
                 return (obj);
 
              }
