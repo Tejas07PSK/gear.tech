@@ -81,22 +81,22 @@ const test = function() {
     switch (arguments[1]) {
 
         case 1 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'strToByteArray', 1); }
-                 else { console.log("Error!! Incompatible variable type."); }
+                 else { console.log("Error!! Incompatible variable type."); return; }
                  break;
         case 2 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'padding', 2); }
-                 else { console.log("Error!! Incompatible variable type."); }
+                 else { console.log("Error!! Incompatible variable type."); return; }
                  break;
         case 3 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'wordArr', 3); }
-                 else { console.log("Error!! Incompatible variable type."); }
+                 else { console.log("Error!! Incompatible variable type."); return; }
                  break;
         case 4 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'sha1', 4); }
-                 else { console.log("Error!! Incompatible variable type."); }
+                 else { console.log("Error!! Incompatible variable type."); return; }
                  break;
         case 5 : if ((typeof arguments[0]) === "number") { sub(arguments[0], 'binary64Converter', 5); }
-                 else { console.log("Error!! Incompatible variable type."); }
+                 else { console.log("Error!! Incompatible variable type."); return; }
                  break;
         case 6 : if ((typeof arguments[0]) === "object") { sub(arguments[0], 'hexOrBase64Converter', 6); }
-                 else { console.log("Error!! Incompatible variable type."); }
+                 else { console.log("Error!! Incompatible variable type."); return; }
                  break;
         default : console.log("Error!! Irrelevant choice for function testing in \'sha-1.js\'.");
                   break;
