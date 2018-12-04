@@ -37,6 +37,7 @@ module.exports = {
     "binary64Converter" : function(n)
                           {
 
+                              if ((n === null) || (n === undefined)) { console.log("Error!! Incompatible variable type."); return (new Uint8Array(1)); }
                               let bin = [], count = 0;
                               let uint8mlarr = new Uint8Array(8);
                               while (n > 0)
@@ -72,6 +73,7 @@ module.exports = {
     "strToByteArray" : function(str)
                        {
 
+                           if ((str === null) || (str === undefined)) { console.log("Error!! Incompatible variable type."); return (new Uint8Array(1)); }
                            let len = str.length, arr = new Uint8Array (len);
                            for (let i = 0; i < len; i += 1) { arr[i] = ((arguments[0]).charCodeAt(i) & 255); }
                            return (arr);
@@ -80,6 +82,7 @@ module.exports = {
     "padding" : function()
                 {
 
+                    if ((arguments[0] === null) || (arguments[0] === undefined)) { console.log("Error!! Incompatible variable type."); return (new Uint8Array(1)); }
                     let uint8arr = this.strToByteArray(arguments[0]), ml = uint8arr.length, ml64bit = this.binary64Converter((ml * 8)), block_size = 64, noofbits = 0;
                     while (((ml + noofbits) % block_size) !== 56) { noofbits += 1; }
                     let padded_array = new Uint8Array(ml + noofbits + 8);
@@ -97,6 +100,7 @@ module.exports = {
     "wordArr" : function()
                 {
 
+                    if ((arguments[0] === null) || (arguments[0] === undefined)) { console.log("Error!! Incompatible variable type."); return ([]); }
                     let uint8arr = this.padding(arguments[0]), uint32arr = new Uint32Array(80), temp = new Uint32Array(1);
                     let j = -1, i = 0, count = 0, block_list = [];
                     while (j < uint8arr.length)
@@ -133,6 +137,7 @@ module.exports = {
     "sha1" : function(message)
              {
 
+                if ((message === null) || (message === undefined)) { console.log("Error!! Incompatible variable type."); return (null); }
                 function circularLeftShift (val_factor)
                 {
 
