@@ -18,13 +18,15 @@ const test_case1 = [
 
 ];
 
+const test_case2 = [ bigInt(0), bigInt(98876542), bigInt("766631112345567778655432"), null, undefined ];
+
 /* --------------------------_______OPTIONS_______----------------------------
  *  Case - 1 : Test 'strToByteArray' function of 'sha-1.js' for a string_variable.
  *  Case - 2 : Test 'padding' function of 'sha-1.js' for a string_variable.
  *  Case - 3 : Test 'wordArr' function of 'sha-1.js' for a string_variable.
  *  Case - 4 : Test 'sha1' function of 'sha-1.js' for a str_variable.
  *  Case - 5 : Test 'binary64Converter' function of 'sha-1.js' for a number_variable.
- *  Case - 6 : Test 'hexOrBase64Converter' function of 'sha-1.js' for a number_variable.
+ *  Case - 6 : Test 'hexOrBase64Converter' function of 'sha-1.js' for a big-integer object.
  */
 
 const test = function() {
@@ -72,8 +74,8 @@ const test = function() {
 
     }
     if ((arguments.length < 2) || (arguments.length > 2)) { console.log("Error!! Insufficient/Unnecessary arguments, for test function!!"); return; }
-    //if ((arguments[0] === undefined) || (arguments[0] === null)) { console.log("Error!! Incompatible \'test-variable\' type, it can either be an \'integer\' or a \'string\'."); return; }
-    //if ((arguments[1] === undefined) || (arguments[1] === null)) { console.log("Error!! Incompatible \'case-variable\' type, it can only be an \'integer\'."); return; }
+    //if ((arguments[0] === undefined) || (arguments[0] === null)) { console.log("Error!! Incompatible \'test-variable\' type, it can either be an \'number\' or a \'string\' or a \'big-integer object\'."); return; }
+    //if ((arguments[1] === undefined) || (arguments[1] === null)) { console.log("Error!! Incompatible \'case-variable\' type, it can only be an \'number\'."); return; }
     switch (arguments[1]) {
 
         case 1 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'strToByteArray', 1); }
@@ -91,7 +93,7 @@ const test = function() {
         case 5 : if ((typeof arguments[0]) === "number") { sub(arguments[0], 'binary64Converter', 5); }
                  else { console.log("Error!! Incompatible variable type."); }
                  break;
-        case 6 : if ((typeof arguments[0]) === "number") { sub(arguments[0], 'hexOrBase64Converter', 6); }
+        case 6 : if ((typeof arguments[0]) === "object") { sub(arguments[0], 'hexOrBase64Converter', 6); }
                  else { console.log("Error!! Incompatible variable type."); }
                  break;
         default : console.log("Error!! Irrelevant choice for function testing in \'sha-1.js\'.");
@@ -101,13 +103,15 @@ const test = function() {
 
 };
 
-for (let i = 0; i < test_case1.length; i += 1)
+/*for (let i = 0; i < test_case1.length; i += 1)
 {
 
     test(test_case1[i], 1);
     test(test_case1[i], 2);
     test(test_case1[i], 3);
     test(test_case1[i], 4);
-    test((test_case1[i]), 5);
+    try { test(test_case1[i].length, 5); } catch (e) { console.log(e); }
 
-}
+}*/
+
+for (let i = 0; i < test_case2.length; i += 1)  { try { test(test_case2[i], 6); } catch (e) { console.log(e); } }
