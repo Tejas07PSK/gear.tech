@@ -13,7 +13,7 @@ const hash = require("./sha-1");
 const test_case1 = [
 
     "", "abc", "abcd",
-    "the quick brown fox jumps over the lazy dog", "the quick brown fox jumps over the lazy cog",
+    "The quick brown fox jumps over the lazy dog", "The quick brown fox jumps over the lazy cog",
     null, undefined
 
 ];
@@ -29,53 +29,64 @@ const test_case1 = [
 
 const test = function() {
 
+    function sub(value, name, c) {
+
+        console.log("TESTING -> \'" + name + "\' function of \'sha-1.js\' .......");
+        console.log("Input - " + value);
+        console.log("Results - ");
+        if (c === 1) {
+
+            console.log("Elements of a uint8array [] __");
+            (hash.strToByteArray(value)).forEach( function (val, index) { console.log("index : " + index + " ---- " + "value : " + val); } );
+
+        }
+        else if (c === 2) {
+
+            console.log("Elements of a uint8array [] __");
+            (hash.padding(value)).forEach( function (val, index) { console.log("index : " + index + " ---- " + "value : " + val); } );
+
+        }
+        else if (c === 3) {
+
+            console.log("Elements of an array of uint32arrays [] __");
+            (hash.wordArr(value)).forEach( function (val, index) {
+
+                console.log("index : " + index + " ---- " + "value : ");
+                console.log("Elements of a uint32array [] __");
+                val.forEach( function (val, index) { console.log("\t \t index : " + index + " ---- " + "value : " + val); } );
+
+            } );
+
+        }
+        else if (c === 4) { console.log(hash.sha1(value)); }
+        else if (c === 5) {
+
+            console.log("Elements of a uint8array [] __");
+            (hash.binary64Converter(value)).forEach( function (val, index) { console.log("index : " + index + " ---- " + "value : " + val); } );
+
+        }
+        else if (c === 6) { console.log(hash.hexOrBase64Converter(arguments[0], 16)); console.log(hash.hexOrBase64Converter(arguments[0], 64)); }
+        else { /* do nothing. */ }
+        console.log("Passed ..... OK!");
+        console.log("---------------------________________---------------------");
+
+    }
     if ((arguments.length < 2) || (arguments.length > 2)) { console.log("Error!! Insufficient/Unnecessary arguments, for test function!!"); return; }
     if ((arguments[0] === undefined) || (arguments[0] === null)) { console.log("Error!! Incompatible \'test-variable\' type, it can either be an \'integer\' or a \'string\'."); return; }
     if ((arguments[1] === undefined) || (arguments[1] === null)) { console.log("Error!! Incompatible \'case-variable\' type, it can only be an \'integer\'."); return; }
     switch (arguments[1]) {
 
-        case 1 : console.log("TESTING -> \'strToByteArray\' function of \'sha-1.js\' .......");
-                 console.log("Input - " + arguments[0]);
-                 console.log("Results - ");
-                 (hash.strToByteArray(arguments[0])).forEach(function(val, index){ console.log("index : " + index + " ---- " + "value : " + val); });
-                 console.log("Passed ..... OK!");
-                 console.log("---------------------________________---------------------");
+        case 1 : sub(arguments[0], 'strToByteArray', 1);
                  break;
-        case 2 : console.log("TESTING -> \'padding\' function of \'sha-1.js\' .......");
-                 console.log("Input - " + arguments[0]);
-                 console.log("Results - ");
-                 (hash.padding(arguments[0])).forEach(function(val, index){ console.log("index : " + index + " ---- " + "value : " + val); });
-                 console.log("Passed ..... OK!");
-                 console.log("---------------------________________---------------------");
+        case 2 : sub(arguments[0], 'padding', 2);
                  break;
-        case 3 : console.log("TESTING -> \'wordArr\' function of \'sha-1.js\' .......");
-                 console.log("Input - " + arguments[0]);
-                 console.log("Results - ");
-                 (hash.wordArr(arguments[0])).forEach(function(val, index){ console.log("index : " + index + " ---- " + "value : " + val); });
-                 console.log("Passed ..... OK!");
-                 console.log("---------------------________________---------------------");
+        case 3 : sub(arguments[0], 'wordArr', 3);
                  break;
-        case 4 : console.log("TESTING -> \'sha1\' function of \'sha-1.js\' .......");
-                 console.log("Input - " + arguments[0]);
-                 console.log("Results - ");
-                 console.log(hash.sha1(arguments[0]));
-                 console.log("Passed ..... OK!");
-                 console.log("---------------------________________---------------------");
+        case 4 : sub(arguments[0], 'sha1', 4);
                  break;
-        case 5 : console.log("TESTING -> \'binary64Converter\' function of 'sha-1.js' .......");
-                 console.log("Input - " + arguments[0]);
-                 console.log("Results - ");
-                 (hash.binary64Converter(arguments[0])).forEach(function(val, index){ console.log("index : " + index + " ---- " + "value : " + val); });
-                 console.log("Passed ..... OK!");
-                 console.log("---------------------________________---------------------");
+        case 5 : sub(arguments[0], 'binary64Converter', 5);
                  break;
-        case 6 : console.log("TESTING -> \'hexOrBase64Converter\' function of 'sha-1.js' .......");
-                 console.log("Input - " + arguments[0]);
-                 console.log("Results - ");
-                 console.log(hash.hexOrBase64Converter(arguments[0], 16));
-                 console.log(hash.hexOrBase64Converter(arguments[0], 64));
-                 console.log("Passed ..... OK!");
-                 console.log("---------------------________________---------------------");
+        case 6 : sub(arguments[0], 'hexOrBase64Converter', 6);
                  break;
 
     }
