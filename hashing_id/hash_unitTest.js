@@ -6,6 +6,8 @@
 
  */
 
+"use strict";
+
 const bigInt =  require("big-integer");
 const hash = require("./sha-1");
 
