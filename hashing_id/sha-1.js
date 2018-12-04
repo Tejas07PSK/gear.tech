@@ -20,7 +20,9 @@ module.exports = {
     "hexOrBase64Converter" : function(n, b)
                              {
 
+                                 if ((n === null) || (n === undefined)) { console.log("Error!! Incompatible variable type."); return (""); }
                                  let map = ((b === 64) ? base64Map : hexMap), str = "", temp = null;
+                                 if (n.value === 0) { return ("" + map[0]); }
                                  while (n.gt(0))
                                  {
 
@@ -42,7 +44,7 @@ module.exports = {
 
                                   bin.push(Math.floor(n % 2));
                                   count += 1;
-                                  if (count === 64){ break; }
+                                  if (count === 64) { break; }
                                   n = Math.floor(n / 2);
 
                               }
@@ -114,12 +116,12 @@ module.exports = {
                                          uint32arr = new Uint32Array(80);
 
                                      }
-                                     if (j === (uint8arr.length - 1)){ j += 1; }
+                                     if (j === (uint8arr.length - 1)) { j += 1; }
                                      break;
                             default : j += 1;
                                       count += 1;
                                       temp[0] |= uint8arr[j];
-                                      if (count !== 4){ temp[0] <<= 8; }
+                                      if (count !== 4) { temp[0] <<= 8; }
                                       break;
 
                         }
@@ -135,7 +137,7 @@ module.exports = {
                 {
 
                     val_factor[0] = ((val_factor[0] << val_factor[1]) | (val_factor[0] >>> (32 - val_factor[1])));
-                    return(val_factor);
+                    return (val_factor);
 
                 }
                 var mod = new Uint32Array(1), h = new Uint32Array(5), val_factor = new Uint32Array(2);
