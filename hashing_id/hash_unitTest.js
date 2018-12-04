@@ -72,21 +72,21 @@ const test = function() {
 
     }
     if ((arguments.length < 2) || (arguments.length > 2)) { console.log("Error!! Insufficient/Unnecessary arguments, for test function!!"); return; }
-    if ((arguments[0] === undefined) || (arguments[0] === null)) { console.log("Error!! Incompatible \'test-variable\' type, it can either be an \'integer\' or a \'string\'."); return; }
-    if ((arguments[1] === undefined) || (arguments[1] === null)) { console.log("Error!! Incompatible \'case-variable\' type, it can only be an \'integer\'."); return; }
+    //if ((arguments[0] === undefined) || (arguments[0] === null)) { console.log("Error!! Incompatible \'test-variable\' type, it can either be an \'integer\' or a \'string\'."); return; }
+    //if ((arguments[1] === undefined) || (arguments[1] === null)) { console.log("Error!! Incompatible \'case-variable\' type, it can only be an \'integer\'."); return; }
     switch (arguments[1]) {
 
-        case 1 : sub(arguments[0], 'strToByteArray', 1);
+        case 1 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'strToByteArray', 1); }
                  break;
-        case 2 : sub(arguments[0], 'padding', 2);
+        case 2 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'padding', 2); }
                  break;
-        case 3 : sub(arguments[0], 'wordArr', 3);
+        case 3 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'wordArr', 3); }
                  break;
-        case 4 : sub(arguments[0], 'sha1', 4);
+        case 4 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'sha1', 4); }
                  break;
-        case 5 : sub(arguments[0], 'binary64Converter', 5);
+        case 5 : if ((typeof arguments[0]) === "number") { sub(arguments[0], 'binary64Converter', 5); }
                  break;
-        case 6 : sub(arguments[0], 'hexOrBase64Converter', 6);
+        case 6 : if ((typeof arguments[0]) === "number") { sub(arguments[0], 'hexOrBase64Converter', 6); }
                  break;
 
     }
