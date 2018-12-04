@@ -94,6 +94,8 @@ const test = function() {
         case 6 : if ((typeof arguments[0]) === "number") { sub(arguments[0], 'hexOrBase64Converter', 6); }
                  else { console.log("Error!! Incompatible variable type."); }
                  break;
+        default : console.log("Error!! Irrelevant choice for function testing in \'sha-1.js\'.");
+                  break;
 
     }
 
@@ -106,6 +108,6 @@ for (let i = 0; i < test_case1.length; i += 1)
     test(test_case1[i], 2);
     test(test_case1[i], 3);
     test(test_case1[i], 4);
-    test((test_case1[i]).length, 5);
+    test((test_case1[i]), 5);
 
 }
