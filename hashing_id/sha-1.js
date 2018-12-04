@@ -32,7 +32,7 @@ module.exports = {
                                  return (str);
 
                              },
-    "binary64converter" : function(n)
+    "binary64Converter" : function(n)
                           {
 
                               let bin = [], count = 0;
@@ -78,7 +78,7 @@ module.exports = {
     "padding" : function()
                 {
 
-                    let uint8arr = this.strToByteArray(arguments[0]), ml = uint8arr.length, ml64bit = this.binary64converter((ml * 8)), block_size = 64, noofbits = 0;
+                    let uint8arr = this.strToByteArray(arguments[0]), ml = uint8arr.length, ml64bit = this.binary64Converter((ml * 8)), block_size = 64, noofbits = 0;
                     while (((ml + noofbits) % block_size) !== 56) { noofbits += 1; }
                     let padded_array = new Uint8Array(ml + noofbits + 8);
                     for (let i = 0, j = 0; i < padded_array.length; i += 1)
