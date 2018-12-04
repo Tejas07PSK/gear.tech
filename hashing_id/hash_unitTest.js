@@ -100,6 +100,6 @@ for (let i = 0; i < test_case1.length; i += 1)
     test(test_case1[i], 2);
     test(test_case1[i], 3);
     test(test_case1[i], 4);
-    test(test_case1[i], 5);
+    test((test_case1[i]).length, 5);
 
 }
