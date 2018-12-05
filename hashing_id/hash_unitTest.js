@@ -77,8 +77,8 @@ const test = function() {
 
     }
     if ((arguments.length < 2) || (arguments.length > 2)) { console.log("Error!! Insufficient/Unnecessary arguments, for test function!!"); return; }
-    //if ((arguments[0] === undefined) || (arguments[0] === null)) { console.log("Error!! Incompatible \'test-variable\' type, it can either be an \'number\' or a \'string\' or a \'big-integer object\'."); return; }
-    //if ((arguments[1] === undefined) || (arguments[1] === null)) { console.log("Error!! Incompatible \'case-variable\' type, it can only be an \'number\'."); return; }
+    if ((arguments[0] === undefined) || (arguments[0] === null)) { console.log("Error!! Incompatible \'test-variable\' type, it can either be an \'number\' or a \'string\' or a \'big-integer object\'."); return; }
+    if ((arguments[1] === undefined) || (arguments[1] === null)) { console.log("Error!! Incompatible \'case-variable\' type, it can only be an \'number\'."); return; }
     switch (arguments[1]) {
 
         case 1 : if ((typeof arguments[0]) === "string") { sub(arguments[0], 'strToByteArray', 1); }
@@ -106,7 +106,7 @@ const test = function() {
 
 };
 
-/*for (let i = 0; i < test_case1.length; i += 1)
+for (let i = 0; i < test_case1.length; i += 1)
 {
 
     test(test_case1[i], 1);
@@ -117,6 +117,6 @@ const test = function() {
 
 }
 
-for (let i = 0; i < test_case2.length; i += 1)  { try { test(test_case2[i], 6); } catch (e) { console.log(e); } }*/
+for (let i = 0; i < test_case2.length; i += 1)  { try { test(test_case2[i], 6); } catch (e) { console.log(e); } }
 
 for (let i = 0; i < test_case1.length; i += 1) { console.log(genId.formId(test_case1[i])); }
