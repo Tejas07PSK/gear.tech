@@ -10,6 +10,7 @@
 
 const bigInt =  require("big-integer");
 const hash = require("./sha-1");
+const genId =  require("./generate-id");
 
 // modify this test array, for any custom test-cases.
 const test_case1 = [
@@ -105,7 +106,7 @@ const test = function() {
 
 };
 
-for (let i = 0; i < test_case1.length; i += 1)
+/*for (let i = 0; i < test_case1.length; i += 1)
 {
 
     test(test_case1[i], 1);
@@ -116,4 +117,6 @@ for (let i = 0; i < test_case1.length; i += 1)
 
 }
 
-for (let i = 0; i < test_case2.length; i += 1)  { try { test(test_case2[i], 6); } catch (e) { console.log(e); } }
+for (let i = 0; i < test_case2.length; i += 1)  { try { test(test_case2[i], 6); } catch (e) { console.log(e); } }*/
+
+for (let i = 0; i < test_case1.length; i += 1) { console.log(genId.formId(test_case1[i])); }
