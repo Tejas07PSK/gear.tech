@@ -30,7 +30,6 @@ function logic(hex, base64, uidx1, uidx2)
     let index1 = getRandomInclusive(0, uidx1), index2 = getRandomInclusive(0, uidx2);
     return (loop(index1, uidx1, hex) + loop(index2, uidx2, base64));
 
-
 }
 
 module.exports = new Object();
