@@ -1,65 +1,63 @@
 {
-
-  "name" : "gear.tech",
-  "version" : "1.0.0",
-  "description" : "A simple 'URL' shortening web-app.",
-  "keywords" : [ "URL",  "Short-URL",  "web-app", "nodeJS", "expressJs", "naive-app" ],
-  "license" : "MIT",
-  "author" : {
-
-    "name" : "Palash Sarkar",
-    "email" : "palashsarkar0007@gmail.com",
-    "url" : "https://github.com/Tejas07PSK"
-
+  "name": "gear.tech",
+  "version": "1.0.0",
+  "description": "A simple 'URL' shortening web-app.",
+  "keywords": [
+    "URL",
+    "Short-URL",
+    "web-app",
+    "nodeJS",
+    "expressJs",
+    "naive-app"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Palash Sarkar",
+    "email": "palashsarkar0007@gmail.com",
+    "url": "https://github.com/Tejas07PSK"
   },
-  "files" : [ "*" ],
-  "main" : "./bin/www",
-  "bin" : {
-
-    "gear.tech" : "./bin/www"
-
+  "files": [
+    "*"
+  ],
+  "main": "./bin/www",
+  "bin": {
+    "gear.tech": "./bin/www"
   },
-  "repository" : {
-
-    "type" : "git",
-    "url" : "https://github.com/Tejas07PSK/gear.tech"
-
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tejas07PSK/gear.tech"
   },
-  "config" : {
-
-    "port" : "3000"
-
+  "config": {
+    "port": "3000"
   },
-  "private" : true,
-  "scripts" : {
-
-    "start" : "node ./bin/www",
-    "ndm" : "nodemon ./bin/www"
-
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "ndm": "nodemon ./bin/www"
   },
-  "dependencies" : {
-
-    "cookie-parser" : "~1.4.3",
-    "debug" : "~2.6.9",
-    "ejs" : "~2.5.7",
-    "express" : "~4.16.0",
-    "http-errors" : "~1.6.2",
-    "morgan" : "~1.9.0",
-    "big-integer" : "~1.6.36"
-
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "big-integer": "~1.6.36",
+    "mongoose": "~5.3.15"
   },
-  "devDependencies" : {
-
-    "nodemon" : "~1.18.7"
-
+  "devDependencies": {
+    "nodemon": "~1.18.7"
   },
-  "engines" : {
-
-    "node" : ">=10.14.1 <12.0.0",
-    "npm" : "~6.4.1"
-
+  "engines": {
+    "node": ">=10.14.1 <12.0.0",
+    "npm": "~6.4.1"
   },
-  "os" : [ "darwin", "linux" ],
-  "cpu": [ "x64", "x86" ]
-
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "cpu": [
+    "x64",
+    "x86"
+  ]
 }
