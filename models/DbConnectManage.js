@@ -35,7 +35,7 @@ const options = {
 async function start()
 {
 
-    await (mongo.connect(url, options)).then(() => { console.log("Promise for connection resolved!!"); }, (err) => { console.log("Promise for connection rejected!!"); console.log("Mongoose encountered an ERROR while connecting : default mode!!"); console.log(err);});
+    await (mongo.connect(url, options)).then(() => { console.log("Promise for connection resolved!!"); }, (err) => { console.log("Promise for connection rejected!!"); console.log("Mongoose encountered an ERROR while connecting : default mode!!"); console.log(err); });
 
 }
 
