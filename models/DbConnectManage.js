@@ -54,5 +54,6 @@ mongo.connection.on('connected', function () { console.log("Mongoose default con
 mongo.connection.on('disconnected', function () { console.log("Mongoose default connection closed to : " + url); console.log("Disconnected!!"); });
 mongo.connection.on('reconnectFailed', function () { console.log("Mongoose failed to reconnect to : " + url); console.log("Ran out of retries."); });
 //mongo.connection.on('error', function (err) { console.log("Mongoose encountered an ERROR while connecting : default mode!!"); console.log(err); });
+process.on('SIGINT', function () { stop(); console.log('Mongoose default connection disconnected through app termination!!'); process.exit(0); });
 
 module.exports = { "open" : start , "close" : stop, "getDb" : function () { return (db); } };
