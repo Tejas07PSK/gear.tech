@@ -55,4 +55,4 @@ mongo.connection.on('disconnected', function () { console.log("Mongoose default 
 mongo.connection.on('reconnectFailed', function () { console.log("Mongoose failed to reconnect to : " + url); console.log("Ran out of retries."); });
 //mongo.connection.on('error', function (err) { console.log("Mongoose encountered an ERROR while connecting : default mode!!"); console.log(err); });
 
-module.exports = { "open" : start , "close" : stop };
+module.exports = { "open" : start , "close" : stop, "getDb" : function () { return (db); } };
