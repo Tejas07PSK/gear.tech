@@ -28,6 +28,7 @@ module.export = {
 
            if(err) { console.log("URL retrieval failed!! Error!!"); console.log(err); eff = false; }
            else { console.log("URL retrieval successful!!"); eff = doc.message; }
+
        });
        return (eff);
 
@@ -38,9 +39,21 @@ module.export = {
 
             if(err) { console.log("Document retrieval failed!! Error!!"); console.log(err); eff = false; }
             else { console.log("Document retrieval successful!!"); eff = true; }
+
         });
         return (eff);
 
     },
+    "updateDocKeyId" : async function(key_id, new_id) {
+
+        await (models.Dashboard).findOneAndUpdate({ 'key_id' : key_id }, { $set : { 'key_id' : new_id } }, function (err) {
+
+            if(err) { console.log("Document update failed!! Error!!"); console.log(err); eff = false; }
+            else { console.log("Document update successful!!"); eff = true; }
+
+        });
+        return (eff);
+
+    }
 
 };
