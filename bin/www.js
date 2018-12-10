@@ -8,6 +8,8 @@
 
  */
 
+"use strict";
+
 // 'www' dependency-vars.
 
 const app = require('../app');
