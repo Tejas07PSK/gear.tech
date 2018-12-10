@@ -6,6 +6,8 @@
 
  */
 
+"use strict";
+
 const models = require("./schemasandmodels");
 
 let eff = undefined;
