@@ -8,9 +8,10 @@
 
 "use strict";
 
-const Schema = (require("mongoose")).Schema;
+const mongo = rquire('mongoose');
+const Schema = mongo.Schema;
 
-module.export.coll1 = new Schema({
+const coll1 = new Schema({
 
     "_id" : Schema.Types.ObjectId,
     "key_id" : { 'type' : String, 'unique' : true, 'required' : true },
@@ -24,3 +25,9 @@ module.export.coll1 = new Schema({
     "dateAdded" : { 'type' : Date, 'default' : Date.now() }
 
 });
+
+module.export = {
+
+    "Dashboard" : mongo.model('Dashborad', coll1)
+
+};
