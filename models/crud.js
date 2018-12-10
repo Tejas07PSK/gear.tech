@@ -66,6 +66,6 @@ module.export = {
         });
         return (eff);
 
-    },
+    }
 
 };
