@@ -26,7 +26,7 @@ const coll1 = new Schema({
 
 });
 
-module.export = {
+module.exports = {
 
     "Dashboard" : mongo.model('Dashborad', coll1)
 
