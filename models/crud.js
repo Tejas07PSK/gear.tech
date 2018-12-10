@@ -9,13 +9,14 @@
 const models = require("./schemasandmodels");
 
 let eff = undefined;
+
 module.export = {
 
     "createDoc" : async function(obj) {
 
         await ((new models.Dashboard(obj)).save()).then(
 
-                () => { console.log("Document insertion successful in collection \'Dashboard\'!!"); eff = obj.key_id; },
+                (doc) => { console.log("Document insertion successful in collection \'Dashboard\'!!"); console.log(`Newly created doc is : \n ${doc}`); eff = obj.key_id; },
                 (err) => { console.log("Document insertion failed!! ERROR!!"); console.log(err); eff = false; }
 
             );
@@ -27,18 +28,18 @@ module.export = {
        await (models.Dashboard).findOne({ 'key_id' : key_id }, 'message', function (err, doc) {
 
            if(err) { console.log("URL retrieval failed!! Error!!"); console.log(err); eff = false; }
-           else { console.log("URL retrieval successful!!"); eff = doc.message; }
+           else { console.log("URL retrieval successful!!"); console.log(`Retrieved doc is : \n ${doc}`); eff = doc.message; }
 
        });
        return (eff);
 
     },
-    "getDocFromUrl" : async function(msg) {
+    "getDocFromUrl" : async function(url) {
 
-        await (models.Dashboard).findOne({ 'message' : msg }, function (err) {
+        await (models.Dashboard).findOne({ 'message' : url }, function (err, doc) {
 
             if(err) { console.log("Document retrieval failed!! Error!!"); console.log(err); eff = false; }
-            else { console.log("Document retrieval successful!!"); eff = true; }
+            else { console.log("Document retrieval successful!!"); console.log(`Retrieved doc is : \n ${doc}`); eff = true; }
 
         });
         return (eff);
@@ -46,14 +47,25 @@ module.export = {
     },
     "updateDocKeyId" : async function(key_id, new_id) {
 
-        await (models.Dashboard).findOneAndUpdate({ 'key_id' : key_id }, { $set : { 'key_id' : new_id } }, function (err) {
+        await (models.Dashboard).findOneAndUpdate({ 'key_id' : key_id }, { $set : { 'key_id' : new_id } }, function (err, doc) {
 
             if(err) { console.log("Document update failed!! Error!!"); console.log(err); eff = false; }
-            else { console.log("Document update successful!!"); eff = true; }
+            else { console.log("Document update successful!!"); console.log(`New modified doc is : \n ${doc}`); eff = true; }
 
         });
         return (eff);
 
-    }
+    },
+    "deleteDocByKeyId" : async function(key_id) {
+
+        await (models.Dashboard).findOneAndDelete({ 'key_id' : key_id }, function (err, doc) {
+
+            if(err) { console.log("Document deletion failed!! Error!!"); console.log(err); eff = false; }
+            else { console.log("Document update successful!!"); console.log(`Following doc removed : \n ${doc}`); eff = true; }
+
+        });
+        return (eff);
+
+    },
 
 };
