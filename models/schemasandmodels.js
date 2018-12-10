@@ -28,6 +28,6 @@ const coll1 = new Schema({
 
 module.exports = {
 
-    "Dashboard" : mongo.model('Dashborad', coll1)
+    "Dashboard" : mongo.model('Dashboard', coll1)
 
 };
