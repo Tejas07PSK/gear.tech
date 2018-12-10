@@ -26,10 +26,20 @@ module.export = {
 
        await (models.Dashboard).findOne({ 'key_id' : key_id }, 'message', function (err, doc) {
 
-           if(err) { console.log("Document retrieval failed!! Error!!"); console.log(err); eff = false; }
-           else { console.log("Document retrieval successful!!"); eff = doc.message; }
+           if(err) { console.log("URL retrieval failed!! Error!!"); console.log(err); eff = false; }
+           else { console.log("URL retrieval successful!!"); eff = doc.message; }
        });
        return (eff);
+
+    },
+    "getDocFromUrl" : async function(msg) {
+
+        await (models.Dashboard).findOne({ 'message' : msg }, function (err) {
+
+            if(err) { console.log("Document retrieval failed!! Error!!"); console.log(err); eff = false; }
+            else { console.log("Document retrieval successful!!"); eff = true; }
+        });
+        return (eff);
 
     },
 
