@@ -12,7 +12,7 @@ const models = require("./schemasandmodels");
 
 let eff = undefined;
 
-module.export = {
+module.exports = {
 
     "createDoc" : async function(obj) {
 
