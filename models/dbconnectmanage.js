@@ -47,7 +47,7 @@ async function stop()
 
 }
 
-(async () => { await start() })();
+//(async () => { await start() })();
 
 mongo.connection.on('reconnect', function () { console.log("Mongoose reconnected to : " + url); });
 mongo.connection.on('connected', function () { console.log("Mongoose default connection open to : " + url + "............."); console.log("Connection Successful!!"); });
