@@ -27,7 +27,7 @@ module.exports = {
     },
     "getUrlFromKeyId" : async function(key_id) {
 
-       await (models.Dashboard).findOne({ 'key_id' : key_id }, 'message', function (err, doc) {
+       await (models.Dashboard).findOne({ 'key_id' : key_id }, 'message key_id', function (err, doc) {
 
            if(err) { console.log("URL retrieval failed!! Error!!"); console.log(err); eff = false; }
            else { console.log("URL retrieval successful!!"); console.log(`Retrieved doc is : \n ${doc}`); eff = doc.message; }
