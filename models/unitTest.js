@@ -24,11 +24,11 @@ let inpKeyId = "qs223ery", inpURL = "gog.com", updtKeyId = "gst32";
 
 (ops.createDoc(test_obj)).then((res) => { if (res !== false) { console.log(`Shortened URL Id : ${res}`); } else { console.log("URL not shortened!!"); } });
 
-(ops.getUrlFromKeyId("qs223ery")).then((res) => { if (res !== false) { console.log(`Original URL is : ${res}`); } else { console.log("Invalid 'key_id', URL not found!!"); } });
+(ops.getUrlFromKeyId(inpKeyId)).then((res) => { console.log("Input \'key_id\' : " + inpKeyId); if (res !== false) { console.log(`Original URL is : ${res}`); } else { console.log("Invalid \'key_id\', URL not found!!"); } });
 
-(ops.getDocFromUrl("gog.com")).then((res) => { if (res !== false) { console.log("URL already exists!!"); } else { console.log("URL does not exist!!"); } });
+(ops.getDocFromUrl(inpURL)).then((res) => { console.log("Input URL : " + inpURL); if (res !== false) { console.log("URL already exists!!"); } else { console.log("URL does not exist!!"); } });
 
-(ops.updateDocKeyId("qs223ery", "gst32")).then((res) => { console.log("Update promise resolved!!"); console.log(`Status : ${res}`); });
+(ops.updateDocKeyId(inpKeyId, updtKeyId)).then((res) => { console.log("Input \'key_id\' : " + inpKeyId + "\n New updated \'key_id\' : " + updtKeyId); console.log("Update promise resolved!!"); console.log(`Status : ${res}`); });
 
-(ops.deleteDocByKeyId("gst32")).then((res) => { console.log("Deletion promise resolved!!"); console.log(`Status : ${res}`); });
+(ops.deleteDocByKeyId(updtKeyId)).then((res) => { console.log("Input \'key_id\' : " + updtKeyId); console.log("Deletion promise resolved!!"); console.log(`Status : ${res}`); });
 
