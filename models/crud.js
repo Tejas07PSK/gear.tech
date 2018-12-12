@@ -55,6 +55,7 @@ module.exports = {
     "updateDocKeyId" : async function(key_id, new_id) {
 
         if ((typeof key_id !== "string") || (key_id === null) || (key_id === "")) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
+        if ((typeof new_id !== "string") || (new_id === null) || (new_id === "")) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
         await (models.Dashboard).findOneAndUpdate({ 'key_id' : key_id }, { $set : { 'key_id' : new_id } }, function (err, doc) {
 
             if(err) { console.log("Document update failed!! Error!!"); console.log(err); eff = false; }
