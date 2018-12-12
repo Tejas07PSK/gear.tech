@@ -28,7 +28,7 @@ module.exports = {
     },
     "getUrlFromKeyId" : async function(key_id) {
 
-       if ((typeof key_id !== "string") || (key_id === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
+       if ((typeof key_id !== "string") || (key_id === null) || (key_id === "")) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
        await (models.Dashboard).findOne({ 'key_id' : key_id }, 'message key_id', function (err, doc) {
 
            if (err) { console.log("URL retrieval failed!! Error!!"); console.log(err); eff = false; }
@@ -41,7 +41,7 @@ module.exports = {
     },
     "getDocFromUrl" : async function(url) {
 
-        if ((typeof url !== "string") || (url === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
+        if ((typeof url !== "string") || (url === null) || (url === "")) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
         await (models.Dashboard).findOne({ 'message' : url }, function (err, doc) {
 
             if(err) { console.log("Document retrieval failed!! Error!!"); console.log(err); eff = false; }
@@ -54,7 +54,7 @@ module.exports = {
     },
     "updateDocKeyId" : async function(key_id, new_id) {
 
-        if ((typeof key_id !== "string") || (key_id === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
+        if ((typeof key_id !== "string") || (key_id === null) || (key_id === "")) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
         await (models.Dashboard).findOneAndUpdate({ 'key_id' : key_id }, { $set : { 'key_id' : new_id } }, function (err, doc) {
 
             if(err) { console.log("Document update failed!! Error!!"); console.log(err); eff = false; }
@@ -67,7 +67,7 @@ module.exports = {
     },
     "deleteDocByKeyId" : async function(key_id) {
 
-        if ((typeof key_id !== "string") || (key_id === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
+        if ((typeof key_id !== "string") || (key_id === null) || (key_id === "")) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
         await (models.Dashboard).findOneAndDelete({ 'key_id' : key_id }, function (err, doc) {
 
             if(err) { console.log("Document deletion failed!! Error!!"); console.log(err); eff = false; }
