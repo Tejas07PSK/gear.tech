@@ -35,7 +35,7 @@ function logic(hex, base64, uidx1, uidx2)
 module.exports = new Object();
 (module.exports).formId = function(message){
 
-    if ((message === null) || (message === undefined)) { console.log("Error!! Incompatible variable type."); return (null); }
+    if ((message === null) || (message === undefined)) { console.log("Error !! Incompatible variable type !!"); return (null); }
     let obj = hash.sha1(message);
     if (obj === null) { return (null); }
     obj.key_id = logic((obj.md).hex, (obj.md).base64, (((obj.md).hex).length - 1), (((obj.md).base64).length - 1));
