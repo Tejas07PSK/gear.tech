@@ -16,6 +16,7 @@ module.exports = {
 
     "createDoc" : async function(obj) {
 
+        if ((typeof obj !== "object") || (obj === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
         await ((new models.Dashboard(obj)).save()).then(
 
                 (doc) => { console.log("Document insertion successful in collection \'Dashboard\'!!"); console.log(`Newly created doc is : \n ${doc}`); eff = obj.key_id; },
@@ -27,10 +28,12 @@ module.exports = {
     },
     "getUrlFromKeyId" : async function(key_id) {
 
+       if ((typeof key_id !== "string") || (key_id === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
        await (models.Dashboard).findOne({ 'key_id' : key_id }, 'message key_id', function (err, doc) {
 
-           if(err) { console.log("URL retrieval failed!! Error!!"); console.log(err); eff = false; }
-           else { console.log("URL retrieval successful!!"); console.log(`Retrieved doc is : \n ${doc}`); eff = doc.message; }
+           if (err) { console.log("URL retrieval failed!! Error!!"); console.log(err); eff = false; }
+           else if (doc !== null) { console.log("URL retrieval successful!!"); console.log(`Retrieved doc is : \n ${doc}`); eff = doc.message; }
+           else { console.log("URL not found invalid \'key_id\'!!"); eff = false; }
 
        });
        return (eff);
@@ -38,10 +41,12 @@ module.exports = {
     },
     "getDocFromUrl" : async function(url) {
 
+        if ((typeof url !== "string") || (url === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
         await (models.Dashboard).findOne({ 'message' : url }, function (err, doc) {
 
             if(err) { console.log("Document retrieval failed!! Error!!"); console.log(err); eff = false; }
-            else { console.log("Document retrieval successful!!"); console.log(`Retrieved doc is : \n ${doc}`); eff = true; }
+            else if (doc !== null) { console.log("Document retrieval successful!!"); console.log(`Retrieved doc is : \n ${doc}`); eff = true; }
+            else { console.log("Document not found invalid \'URL\'!!"); eff = false; }
 
         });
         return (eff);
@@ -49,10 +54,12 @@ module.exports = {
     },
     "updateDocKeyId" : async function(key_id, new_id) {
 
+        if ((typeof key_id !== "string") || (key_id === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
         await (models.Dashboard).findOneAndUpdate({ 'key_id' : key_id }, { $set : { 'key_id' : new_id } }, function (err, doc) {
 
             if(err) { console.log("Document update failed!! Error!!"); console.log(err); eff = false; }
-            else { console.log("Document update successful!!"); console.log(`New modified doc is : \n ${doc}`); eff = true; }
+            else if (doc !== null) { console.log("Document update successful!!"); console.log(`New modified doc is : \n ${doc}`); eff = true; }
+            else { console.log("Document not found invalid \'key_id\'!!"); eff = false; }
 
         });
         return (eff);
@@ -60,10 +67,12 @@ module.exports = {
     },
     "deleteDocByKeyId" : async function(key_id) {
 
+        if ((typeof key_id !== "string") || (key_id === null)) { console.log("Invalid argument type/value error!!"); eff = false; return (eff); }
         await (models.Dashboard).findOneAndDelete({ 'key_id' : key_id }, function (err, doc) {
 
             if(err) { console.log("Document deletion failed!! Error!!"); console.log(err); eff = false; }
-            else { console.log("Document deletion successful!!"); console.log(`Following doc removed : \n ${doc}`); eff = true; }
+            else if (doc !== null) { console.log("Document deletion successful!!"); console.log(`Following doc removed : \n ${doc}`); eff = true; }
+            else { console.log("Document not found invalid \'key_id\'!!"); eff = false; }
 
         });
         return (eff);
