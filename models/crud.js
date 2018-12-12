@@ -63,7 +63,7 @@ module.exports = {
         await (models.Dashboard).findOneAndDelete({ 'key_id' : key_id }, function (err, doc) {
 
             if(err) { console.log("Document deletion failed!! Error!!"); console.log(err); eff = false; }
-            else { console.log("Document update successful!!"); console.log(`Following doc removed : \n ${doc}`); eff = true; }
+            else { console.log("Document deletion successful!!"); console.log(`Following doc removed : \n ${doc}`); eff = true; }
 
         });
         return (eff);
