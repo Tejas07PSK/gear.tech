@@ -22,7 +22,7 @@ let inpKeyId = "qs223ery", inpURL = "gog.com", updtKeyId = "gst32";
 
 (async () => { await conn.open() })();
 
-(ops.createDoc(null)).then((res) => { if (res !== false) { console.log(`Shortened URL Id : ${res}`); } else { console.log("URL not shortened!!"); } });
+(ops.createDoc(true)).then((res) => { if (res !== false) { console.log(`Shortened URL Id : ${res}`); } else { console.log("URL not shortened!!"); } });
 
 //(ops.getUrlFromKeyId(inpKeyId)).then((res) => { console.log("Input \'key_id\' : " + inpKeyId); if (res !== false) { console.log(`Original URL is : ${res}`); } else { console.log("Invalid \'key_id\', URL not found!!"); } });
 
