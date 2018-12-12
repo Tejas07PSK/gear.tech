@@ -30,5 +30,5 @@ let inpKeyId = "qs223ery", inpURL = "gog.com", updtKeyId = "gst32";
 
 //(ops.updateDocKeyId(inpKeyId, updtKeyId)).then((res) => { console.log("Input \'key_id\' : " + inpKeyId + "\n New updated \'key_id\' : " + updtKeyId); console.log("Update promise resolved!!"); console.log(`Status : ${res}`); });
 
-(ops.deleteDocByKeyId(true)).then((res) => { console.log("Input \'key_id\' : " + updtKeyId); console.log("Deletion promise resolved!!"); console.log(`Status : ${res}`); });
+(ops.deleteDocByKeyId(updtKeyId)).then((res) => { console.log("Input \'key_id\' : " + updtKeyId); console.log("Deletion promise resolved!!"); console.log(`Status : ${res}`); });
 
