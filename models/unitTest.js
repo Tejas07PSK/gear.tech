@@ -24,7 +24,7 @@ let inpKeyId = "qs223ery", inpURL = "gog.com", updtKeyId = "gst32";
 
 //(ops.createDoc(test_obj)).then((res) => { if (res !== false) { console.log(`Shortened URL Id : ${res}`); } else { console.log("URL not shortened!!"); } });
 
-(ops.getUrlFromKeyId("")).then((res) => { console.log("Input \'key_id\' : " + inpKeyId); if (res !== false) { console.log(`Original URL is : ${res}`); } else { console.log("Invalid \'key_id\', URL not found!!"); } });
+(ops.getUrlFromKeyId(null)).then((res) => { console.log("Input \'key_id\' : " + inpKeyId); if (res !== false) { console.log(`Original URL is : ${res}`); } else { console.log("Invalid \'key_id\', URL not found!!"); } });
 
 //(ops.getDocFromUrl(inpURL)).then((res) => { console.log("Input URL : " + inpURL); if (res !== false) { console.log("URL already exists!!"); } else { console.log("URL does not exist!!"); } });
 
