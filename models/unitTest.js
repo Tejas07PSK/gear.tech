@@ -28,7 +28,7 @@ let inpKeyId = "qs223ery", inpURL = "gog.com", updtKeyId = "gst32";
 
 //(ops.getDocFromUrl(inpURL)).then((res) => { console.log("Input URL : " + inpURL); if (res !== false) { console.log("URL already exists!!"); } else { console.log("URL does not exist!!"); } });
 
-(ops.updateDocKeyId(true, updtKeyId)).then((res) => { console.log("Input \'key_id\' : " + inpKeyId + "\nNew updated \'key_id\' : " + updtKeyId); console.log("Update promise resolved!!"); console.log(`Status : ${res}`); });
+(ops.updateDocKeyId(inpKeyId, "")).then((res) => { console.log("Input \'key_id\' : " + inpKeyId + "\nNew updated \'key_id\' : " + updtKeyId); console.log("Update promise resolved!!"); console.log(`Status : ${res}`); });
 
 //(ops.deleteDocByKeyId(updtKeyId)).then((res) => { console.log("Input \'key_id\' : " + updtKeyId); console.log("Deletion promise resolved!!"); console.log(`Status : ${res}`); });
 
