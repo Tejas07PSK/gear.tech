@@ -18,7 +18,7 @@ const test_obj = {
     'dateAdded' : Date.now()
 
 };
-let inpKeyId = "qs223ery", inpURL = "gog.com", updtKeyId = "gst32";
+let inpKeyId = "23", inpURL = "gog.com", updtKeyId = "gst32";
 
 (async () => { await conn.open() })();
 
