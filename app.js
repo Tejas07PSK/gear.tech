@@ -28,6 +28,15 @@ app.use(express.urlencoded({ 'extended' : true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', function (req, res, next) {
+
+    /*var contype = req.headers['content-type'];
+    if (!contype || contype.indexOf('application/json') !== 0)
+        return res.send(400);*/
+    next(createError(400));
+
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
