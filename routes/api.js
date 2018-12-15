@@ -12,7 +12,7 @@ const ro = require('../resobj');
 const router = express.Router();
 
 router.get('/', function (req, res, next) {
-
+    
     let url_id = req.query['url_id'];
     if ((url_id === undefined) || (url_id === null) || (url_id === ''))
     {
@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
         res.end(
 
             JSON.stringify(new ro.ResObj("0", "No \'url_id\ given'. No content available !! (http - 204)", "")),
-            "UTF-8", function () { console.log("Http conversation ended successfully !!"); }
+            "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
         );
         return next();
@@ -40,7 +40,7 @@ router.get('/', function (req, res, next) {
                 res.end(
 
                     JSON.stringify(new ro.ResObj("1", "Valid \'url_id\'. URL retrieved successfully !! (http - 200)", tmp)),
-                    "UTF-8", function () { console.log("Http conversation ended successfully !!"); }
+                    "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
                 );
                 return next();
@@ -53,7 +53,7 @@ router.get('/', function (req, res, next) {
                 res.end(
 
                     JSON.stringify(new ro.ResObj("0", "Either an invalid \'url_id\' has been passed or some internal error has occured. No URL found !! (http - 404)", "")),
-                    "UTF-8", function () { console.log("Http conversation ended successfully !!"); }
+                    "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
                 );
                 return next();
@@ -65,3 +65,5 @@ router.get('/', function (req, res, next) {
     );
 
 });
+
+module.exports = router;
