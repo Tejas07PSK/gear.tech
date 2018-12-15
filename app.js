@@ -55,7 +55,7 @@ app.use('/api', function (req, res, next) {
             "UTF-8", function () { console.log("Http conversation ended successfully !!"); }
 
         );
-        return;
+        return next();
 
     }
     next();
