@@ -43,6 +43,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 //Open DataBase connection
+
 (async () => { await conn.open() })();
 
 // Event listener for HTTP server "error" event.
@@ -54,6 +55,7 @@ function onError(error)
   let bind = ((typeof port === 'string') ? ('Pipe ' + port) : ('Port ' + port));
 
   // handle specific listen errors with friendly messages
+    
   switch (error.code)
   {
 
