@@ -13,6 +13,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const ro = require('./resobj');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -30,10 +31,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', function (req, res, next) {
 
-    /*var contype = req.headers['content-type'];
-    if (!contype || contype.indexOf('application/json') !== 0)
-        return res.send(400);*/
-    next(createError(400));
+    res.set({
+
+        'Content-Type' : "application/json",
+        'Content-Length' : "8192",
+        'charset' : "UTF-8"
+
+    });
+    next();
+
+});
+
+app.use('/api', function (req, res, next) {
+
+    let contype = req.headers['Content-Type'];
+    if ((contype === undefined) || (contype === null) || (contype !== 'application/json'))
+    {
+
+        res.status(400);
+        res.end(
+
+            JSON.stringify(new ro.ResObj("0", "Invalid request content type. Bad request error !! (http - 400)", "")),
+            "UTF-8", function () { console.log("Http conversation ended successfully !!"); }
+        );
+        return;
+
+    }
+    next();
 
 });
 
