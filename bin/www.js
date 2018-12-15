@@ -15,6 +15,7 @@
 const app = require('../app');
 const debug = require('debug')('gear.tech:server');
 const http = require('http');
+const conn = require("../models/dbconnectmanage");
 
 // Parse port-number from environment and store in 'express'.
 
@@ -40,6 +41,9 @@ const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+//Open DataBase connection
+(async () => { await conn.open() })();
 
 // Event listener for HTTP server "error" event.
 
