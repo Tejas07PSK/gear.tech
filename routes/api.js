@@ -43,7 +43,6 @@ router.get('/', function (req, res, next) {
                     "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
                 );
-                return next();
 
             }
             else {
@@ -56,7 +55,6 @@ router.get('/', function (req, res, next) {
                     "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
                 );
-                return next();
 
             }
 
