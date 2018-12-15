@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', function (req, res, next) {
 
+    if (req.method === 'GET') { return next(); }
     let contype = req.headers['content-type'];
     if ((contype === undefined) || (contype === null) || (contype !== 'application/json'))
     {
