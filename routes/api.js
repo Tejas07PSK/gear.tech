@@ -12,7 +12,7 @@ const ro = require('../resobj');
 const router = express.Router();
 
 router.get('/', function (req, res, next) {
-    
+
     let url_id = req.query['url_id'];
     if ((url_id === undefined) || (url_id === null) || (url_id === ''))
     {
@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
             "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
         );
-        return next();
+        return;
 
     }
     (crud.getUrlFromKeyId(url_id)).then(
