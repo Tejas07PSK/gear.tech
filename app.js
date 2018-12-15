@@ -16,6 +16,7 @@ const logger = require('morgan');
 const ro = require('./resobj');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const apiRouter = require('./routes/api');
 
 const app = express();
 
@@ -31,20 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', function (req, res, next) {
 
-    res.set({
-
-        'Content-Type' : "application/json",
-        'Content-Length' : "8192",
-        'charset' : "UTF-8"
-
-    });
-    next();
-
-});
-
-app.use('/api', function (req, res, next) {
-
-    let contype = req.headers['Content-Type'];
+    let contype = req.headers['content-type'];
     if ((contype === undefined) || (contype === null) || (contype !== 'application/json'))
     {
 
@@ -52,16 +40,29 @@ app.use('/api', function (req, res, next) {
         res.end(
 
             JSON.stringify(new ro.ResObj("0", "Invalid request content type. Bad request error !! (http - 400)", "")),
-            "UTF-8", function () { console.log("Http conversation ended successfully !!"); }
+            "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
         );
-        return next();
+        return ;
 
     }
     next();
 
 });
 
+app.use('/api', function (req, res, next) {
+    
+    res.set({
+
+        'content-type' : "application/json",
+        'charset' : "utf-8"
+
+    });
+    next();
+
+});
+
+app.use('/api', apiRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
