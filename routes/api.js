@@ -18,10 +18,10 @@ router.get('/', function (req, res, next) {
     {
 
         console.log("No \'url_id\' request parameter !!");
-        res.status(204);
+        res.status(406);
         res.end(
 
-            JSON.stringify(new ro.ResObj("0", "No \'url_id\ given'. No content available !! (http - 204)", "")),
+            JSON.stringify(new ro.ResObj("0", "No \'url_id\ given'. No URL retrieved !! (http - 406)", "")),
             "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
         );
