@@ -53,6 +53,7 @@ app.use('/api', function (req, res, next) {
 
             JSON.stringify(new ro.ResObj("0", "Invalid request content type. Bad request error !! (http - 400)", "")),
             "UTF-8", function () { console.log("Http conversation ended successfully !!"); }
+
         );
         return;
 
