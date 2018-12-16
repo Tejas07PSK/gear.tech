@@ -45,7 +45,7 @@ module.exports = {
         await (models.Dashboard).findOne({ 'message' : url }, function (err, doc) {
 
             if(err) { console.log("Document retrieval failed !! Error !!"); console.log(err); eff = false; }
-            else if (doc !== null) { console.log("Document retrieval successful !!"); console.log(`Retrieved doc is : \n ${doc}`); eff = true; }
+            else if (doc !== null) { console.log("Document retrieval successful !!"); console.log(`Retrieved doc is : \n ${doc}`); eff = doc.key_id; }
             else { console.log("Document not found invalid \'URL\' !!"); eff = false; }
 
         });
