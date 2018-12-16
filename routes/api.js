@@ -11,7 +11,7 @@ const ro = require('../resobj');
 const genId = require('../hashing_id/generate-id');
 const router = (require('express')).Router();
 
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
 
     let url_id = req.query['url_id'];
     if ((url_id === undefined) || (url_id === null) || (url_id === ''))
@@ -64,7 +64,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res) {
 
     let url = req.body['url'];
     if ((url === undefined) || (url === null) || (url === ''))
@@ -74,7 +74,7 @@ router.post('/', function (req, res, next) {
         res.status(406);
         res.end(
 
-            JSON.stringify(new ro.ResObj("0", "No \'url\ given'. Nothing to shorten !! (http - 406)", "")),
+            JSON.stringify(new ro.ResObj("0", "No \'url\' given. Nothing to shorten !! (http - 406)", "")),
             "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
         );
