@@ -33,7 +33,7 @@ function logic(hex, base64, uidx1, uidx2)
 }
 
 module.exports = new Object();
-(module.exports).formId = function(message){
+module.exports.formId = function(message){
 
     if ((message === null) || (message === undefined)) { console.log("Error !! Incompatible variable type !!"); return (null); }
     let obj = hash.sha1(message);
