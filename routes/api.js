@@ -6,6 +6,8 @@
 
  */
 
+"use strict";
+
 const crud = require('../models/crud');
 const ro = require('../resobj');
 const genId = require('../hashing_id/generate-id');
