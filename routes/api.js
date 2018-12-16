@@ -64,4 +64,57 @@ router.get('/', function (req, res, next) {
 
 });
 
+router.post('/', function (req, res, next) {
+
+    let url = req.body['url'];
+    if ((url === undefined) || (url === null) || (url === ''))
+    {
+
+        console.log("No \'url\' request parameter !!");
+        res.status(406);
+        res.end(
+
+            JSON.stringify(new ro.ResObj("0", "No \'url\ given'. Nothing to shorten !! (http - 406)", "")),
+            "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
+        );
+        return;
+
+    }
+    (crud.getUrlFromKeyId(url_id)).then(
+
+        (tmp) => {
+
+            console.log("Input \'key_id\' : " + url_id);
+            if (tmp !== false) {
+
+                console.log(`Original URL is : ${tmp}`);
+                res.status(200);
+                res.end(
+
+                    JSON.stringify(new ro.ResObj("1", "Valid \'url_id\'. URL retrieved successfully !! (http - 200)", tmp)),
+                    "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
+                );
+
+            }
+            else {
+
+                console.log("Either an invalid 'url_id' has been passed or some internal error has occured. URL not found !!");
+                res.status(404);
+                res.end(
+
+                    JSON.stringify(new ro.ResObj("0", "Either an invalid \'url_id\' has been passed or some internal error has occured. No URL found !! (http - 404)", "")),
+                    "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
+                );
+
+            }
+
+        }
+
+    );
+
+});
+
 module.exports = router;
