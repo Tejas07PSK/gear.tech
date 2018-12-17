@@ -64,6 +64,19 @@ app.use('/api', function (req, res, next) {
 });
 
 app.use('/api', apiRouter);
+
+app.use('/:urlid', function (req, res, next) {
+
+    let id = req.params['urlid'];
+    if ((id === undefined) || (id === null) || ((/^[a-zA-Z0-9]{6}$/).test(id)))
+    {
+
+        return next(createError(404));
+
+    }
+    next();
+
+});
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 
