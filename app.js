@@ -77,6 +77,19 @@ app.use('/:urlid', function (req, res, next) {
     next();
 
 });
+
+app.use('/:urlid', function (req, res, next) {
+
+    res.set({
+
+        'content-type' : "text/html",
+        'charset' : "utf-8"
+
+    });
+    next();
+
+});
+
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 
