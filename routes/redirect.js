@@ -14,7 +14,6 @@ const router = (require('express')).Router({ mergeParams : true });
 router.get('/', function (req, res, next) {
 
     let id = req.params['urlid'];
-    console.log(req.params);
     (crud.getUrlFromKeyId(id)).then(
 
         (tmp) => {
