@@ -30,26 +30,6 @@ app.use(express.urlencoded({ 'extended' : true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', function (req, res, next) {
-
-    if (req.method === 'GET') { return next(); }
-    let contype = req.headers['content-type'];
-    if ((contype === undefined) || (contype === null) || (contype !== 'application/json'))
-    {
-
-        res.status(400);
-        res.end(
-
-            JSON.stringify(new ro.ResObj("0", "Invalid request content type. Bad request error !! (http - 400)", "")),
-            "utf-8", function () { console.log("Http conversation ended successfully !!"); }
-
-        );
-        return ;
-
-    }
-    next();
-
-});
 
 app.use('/api', function (req, res, next) {
 
@@ -60,6 +40,74 @@ app.use('/api', function (req, res, next) {
 
     });
     next();
+
+});
+
+app.use('/api', function (req, res, next) {
+
+    let url_id, url, contype;
+    if (req.method === 'GET') {
+
+        url_id = req.query['url_id'];
+        if ((url_id === undefined) || (url_id === null) || (url_id === '')) {
+
+            console.log("No \'url_id\' request parameter !!");
+            res.status(406);
+            res.end(
+
+                JSON.stringify(new ro.ResObj("0", "No \'url_id\ given'. No URL retrieved !! (http - 406)", "")),
+                "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
+            );
+            return;
+
+        }
+        return next();
+
+    }
+    else if (req.method === 'POST') {
+
+        contype = req.headers['content-type']; url = req.body['url'];
+        if ((contype === undefined) || (contype === null) || (contype !== 'application/json')) {
+
+            res.status(400);
+            res.end(
+                JSON.stringify(new ro.ResObj("0", "Invalid request content type. Bad request error !! (http - 400)", "")),
+                "utf-8", function () {
+                    console.log("Http conversation ended successfully !!");
+                }
+            );
+            return;
+
+        }
+        if ((url === undefined) || (url === null) || (url === '')) {
+
+            console.log("No \'url\' request parameter !!");
+            res.status(406);
+            res.end(
+                JSON.stringify(new ro.ResObj("0", "No \'url\' given. Nothing to shorten !! (http - 406)", "")),
+                "utf-8", function () {
+                    console.log("Http conversation ended successfully !!");
+                }
+            );
+            return;
+
+        }
+        return next();
+
+    }
+    else {
+
+        console.log("Http request method not allowed for the access \'URL\' !!");
+        res.status(406);
+        res.end(
+            JSON.stringify(new ro.ResObj("0", "Http request method not allowed for the access 'URL' !! (http - 406)", "")),
+            "utf-8", function () {
+                console.log("Http conversation ended successfully !!");
+            }
+        );
+
+    }
 
 });
 
