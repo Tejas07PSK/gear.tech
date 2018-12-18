@@ -63,6 +63,19 @@ app.use('/api', function (req, res, next) {
             return;
 
         }
+        if (!((/^[a-zA-Z0-9@*]{6}$/).test(url_id))) {
+
+            console.log("Invalid \'url_id\' request parameter !!");
+            res.status(406);
+            res.end(
+
+                JSON.stringify(new ro.ResObj("0", "Invalid \'url_id\ request parameter passed !! (http - 406)", "")),
+                "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
+            );
+            return;
+
+        }
         return next();
 
     }
