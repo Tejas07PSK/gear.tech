@@ -39,6 +39,7 @@ router.post('/', function (req, res) {
             else {
 
                 console.log("Either an invalid \'URL\' has been passed or some internal error has occurred, or it might not exist !!");
+                console.log("Shortening and adding the new \'URL\' to database !!");
                 (crud.createDoc(genId.formId(url))).then(
 
                     (val) => {
