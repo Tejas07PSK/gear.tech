@@ -34,6 +34,7 @@ function normalizePort(val)
 }
 
 app.set('port', port);
+process.title = 'gear';
 
 // Create and set-up 'HTTP' server.
 

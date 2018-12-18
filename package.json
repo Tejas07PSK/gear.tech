@@ -33,7 +33,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "ndm": "nodemon ./bin/www"
+    "stop": "pkill -SIGINT gear",
+    "ndm": "nodemon ./bin/www",
+    "uthashing": "node ./hashing_id/unitTest",
+    "utdbmodels": "node ./hashing_id/unitTest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
