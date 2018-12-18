@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
             if (tmp !== false) {
 
                 console.log(`Original URL is : ${tmp}`);
-                res.redirect(302, temp);
+                res.redirect(302, tmp);
                 return;
 
             }
