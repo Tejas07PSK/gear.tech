@@ -203,14 +203,16 @@ app.use('/', function (req, res, next) {
 
             console.log("Invalid request content type !!");
             res.status(400);
-            return next(createError(400));
+            res.end("Invalid request content type. Bad request !! (http - 400)", "utf-8", function () { console.log("Http conversation ended successfully !!"); });
+            return;
 
         }
         if ((url === undefined) || (url === null) || (url === '') || !((/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig).test(url))) {
 
             console.log("Either no \'url\' request parameter has been passed or the value of the \'url\' parameter might be invalid !!");
             res.status(406);
-            return next(createError(406));
+            res.end("Either no 'url' request parameter has been passed or the value of the 'url' parameter might be invalid. Not acceptable !! (http - 406)", "utf-8", function () { console.log("Http conversation ended successfully !!"); });
+            return;
 
         }
         return next();
@@ -221,7 +223,7 @@ app.use('/', function (req, res, next) {
 
         console.log("Http request method not allowed for the access \'URL\' !!");
         res.status(405);
-        return next(createError(405));
+        res.end("Http request method not allowed for the access \'URL\'. Method not allowed !! (http - 405)", "utf-8", function () { console.log("Http conversation ended successfully !!"); });
 
     }
 
