@@ -16,7 +16,7 @@ const router = (require('express')).Router();
 router.get('/', function (req, res) {
 
     let url_id = req.query['url_id'];
-    if ((url_id === undefined) || (url_id === null) || (url_id === ''))
+    /*if ((url_id === undefined) || (url_id === null) || (url_id === ''))
     {
 
         console.log("No \'url_id\' request parameter !!");
@@ -29,7 +29,7 @@ router.get('/', function (req, res) {
         );
         return;
 
-    }
+    }*/
     (crud.getUrlFromKeyId(url_id)).then(
 
         (tmp) => {
@@ -69,7 +69,7 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
 
     let url = req.body['url'];
-    if ((url === undefined) || (url === null) || (url === ''))
+    /*if ((url === undefined) || (url === null) || (url === ''))
     {
 
         console.log("No \'url\' request parameter !!");
@@ -82,7 +82,7 @@ router.post('/', function (req, res) {
         );
         return;
 
-    }
+    }*/
     (crud.getDocFromUrl(url)).then(
 
         (tmp) => {
