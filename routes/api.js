@@ -16,20 +16,6 @@ const router = (require('express')).Router();
 router.get('/', function (req, res) {
 
     let url_id = req.query['url_id'];
-    /*if ((url_id === undefined) || (url_id === null) || (url_id === ''))
-    {
-
-        console.log("No \'url_id\' request parameter !!");
-        res.status(406);
-        res.end(
-
-            JSON.stringify(new ro.ResObj("0", "No \'url_id\ given'. No URL retrieved !! (http - 406)", "")),
-            "utf-8", function () { console.log("Http conversation ended successfully !!"); }
-
-        );
-        return;
-
-    }*/
     (crud.getUrlFromKeyId(url_id)).then(
 
         (tmp) => {
@@ -69,20 +55,6 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
 
     let url = req.body['url'];
-    /*if ((url === undefined) || (url === null) || (url === ''))
-    {
-
-        console.log("No \'url\' request parameter !!");
-        res.status(406);
-        res.end(
-
-            JSON.stringify(new ro.ResObj("0", "No \'url\' given. Nothing to shorten !! (http - 406)", "")),
-            "utf-8", function () { console.log("Http conversation ended successfully !!"); }
-
-        );
-        return;
-
-    }*/
     (crud.getDocFromUrl(url)).then(
 
         (tmp) => {
