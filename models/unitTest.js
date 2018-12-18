@@ -12,9 +12,9 @@ const conn = require("./dbconnectmanage");
 const ops = require("./crud");
 const test_obj = {
 
-    'key_id' : "qs223ery",
-    'message' : "gog.com",
-    'md' : { 'hex' : "23eewrty", 'base64' : "Aeerty65" },
+    'key_id' : "e60g*N",
+    'message' : "https://www.gog.com",
+    'md' : { 'hex' : "58020fa83f3791f597ec3eb99e614fea1d42e607", 'base64' : "FgCD6g*N5H1l@w@uZ5hT@odQuYH" },
     'dateAdded' : Date.now()
 
 };
