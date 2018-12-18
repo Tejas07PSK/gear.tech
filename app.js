@@ -216,6 +216,7 @@ app.use('/', function (req, res, next) {
         return next();
 
     }
+    else if (req.method === 'GET') { return next(); }
     else {
 
         console.log("Http request method not allowed for the access \'URL\' !!");
