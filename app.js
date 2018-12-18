@@ -160,8 +160,7 @@ app.use('/:urlid', redirect);
 
 app.use('/', function (req, res, next) {
 
-    if (req.method === 'POST')
-    {
+    if (req.method === 'POST') {
 
         res.set({
 
@@ -171,8 +170,7 @@ app.use('/', function (req, res, next) {
         });
 
     }
-    else
-    {
+    else {
 
         res.set({
 
@@ -183,6 +181,15 @@ app.use('/', function (req, res, next) {
 
     }
     next();
+
+});
+app.use('/', function (req, res, next) {
+
+    if (req.method === 'POST'){
+
+        
+
+    }
 
 });
 
