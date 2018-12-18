@@ -82,6 +82,7 @@ app.use('/api', function (req, res, next) {
         let contype = req.headers['content-type'], url = req.body['url'];
         if ((contype === undefined) || (contype === null) || (contype !== 'application/json')) {
 
+            console.log("Invalid request content type !!");
             res.status(400);
             res.end(
 
@@ -184,22 +185,17 @@ app.use('/', function (req, res, next) {
 });
 app.use('/', function (req, res, next) {
 
-    let contype, url;
     if (req.method === 'POST'){
 
-        contype = req.headers['content-type']; url = req.body['url'];
-        if ((contype === undefined) || (contype === null) || (contype !== 'application/json')) {
+        let contype = req.headers['content-type'], url = req.body['url'];
+        if ((contype === undefined) || (contype === null) || (contype !== 'application/x-www-form-urlencoded')) {
 
             res.status(400);
-            res.end(
-
-                JSON.stringify(new ro.ResObj("0", "Invalid request content type. Bad request error !! (http - 400)", "")),
-                "utf-8", function () { console.log("Http conversation ended successfully !!"); }
-
-            );
+            next(createError(400));
             return;
 
         }
+
 
     }
 
