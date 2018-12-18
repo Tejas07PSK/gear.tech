@@ -125,10 +125,10 @@ app.use('/api', function (req, res, next) {
     else {
 
         console.log("Http request method not allowed for the access \'URL\' !!");
-        res.status(406);
+        res.status(405);
         res.end(
 
-            JSON.stringify(new ro.ResObj("0", "Http request method not allowed for the access 'URL' !! (http - 406)", "")),
+            JSON.stringify(new ro.ResObj("0", "Http request method not allowed for the access 'URL' !! (http - 405)", "")),
             "utf-8", function () { console.log("Http conversation ended successfully !!"); }
 
         );
@@ -190,12 +190,19 @@ app.use('/', function (req, res, next) {
         let contype = req.headers['content-type'], url = req.body['url'];
         if ((contype === undefined) || (contype === null) || (contype !== 'application/x-www-form-urlencoded')) {
 
+            console.log("Invalid request content type !!");
             res.status(400);
-            next(createError(400));
-            return;
+            return next(createError(400));
 
         }
+        if ((url === undefined) || (url === null) || (url === '') || !((/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig).test(url))) {
 
+            console.log("Either no \'url\' request parameter has been passed or the value of the \'url\' parameter might be invalid !!");
+            res.status(406);
+            return next(createError(406));
+
+        }
+        return next();
 
     }
 
