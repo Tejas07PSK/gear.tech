@@ -9,6 +9,7 @@
 "use strict";
 
 const crud = require('../models/crud');
+const genId = require('../hashing_id/generate-id');
 const router = (require('express')).Router();
 
 /* GET home page. */
