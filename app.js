@@ -86,10 +86,10 @@ app.use('/api', function (req, res, next) {
 
             res.status(400);
             res.end(
+
                 JSON.stringify(new ro.ResObj("0", "Invalid request content type. Bad request error !! (http - 400)", "")),
-                "utf-8", function () {
-                    console.log("Http conversation ended successfully !!");
-                }
+                "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
             );
             return;
 
@@ -99,10 +99,10 @@ app.use('/api', function (req, res, next) {
             console.log("No \'url\' request parameter !!");
             res.status(406);
             res.end(
+
                 JSON.stringify(new ro.ResObj("0", "No \'url\' given. Nothing to shorten !! (http - 406)", "")),
-                "utf-8", function () {
-                    console.log("Http conversation ended successfully !!");
-                }
+                "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
             );
             return;
 
@@ -115,10 +115,10 @@ app.use('/api', function (req, res, next) {
         console.log("Http request method not allowed for the access \'URL\' !!");
         res.status(406);
         res.end(
+
             JSON.stringify(new ro.ResObj("0", "Http request method not allowed for the access 'URL' !! (http - 406)", "")),
-            "utf-8", function () {
-                console.log("Http conversation ended successfully !!");
-            }
+            "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
         );
 
     }
