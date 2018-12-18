@@ -17,7 +17,7 @@ const test_case1 = [
 
     "", "abc", "abcd",
     "The quick brown fox jumps over the lazy dog", "The quick brown fox jumps over the lazy cog",
-    null, undefined
+    "https://www.gog.com", null, undefined
 
 ];
 
