@@ -43,7 +43,6 @@ app.use('/api', function (req, res, next) {
     next();
 
 });
-
 app.use('/api', function (req, res, next) {
 
     let url_id, url, contype;
@@ -137,7 +136,6 @@ app.use('/api', function (req, res, next) {
     }
 
 });
-
 app.use('/api', apiRouter);
 
 app.use('/:urlid', function (req, res, next) {
@@ -151,7 +149,6 @@ app.use('/:urlid', function (req, res, next) {
     next();
 
 });
-
 app.use('/:urlid', function (req, res, next) {
 
     let id = req.params['urlid'];
@@ -159,8 +156,35 @@ app.use('/:urlid', function (req, res, next) {
     next();
 
 });
-
 app.use('/:urlid', redirect);
+
+app.use('/', function (req, res, next) {
+
+    if (req.method === 'POST')
+    {
+
+        res.set({
+
+            'content-type' : "text/plain",
+            'charset' : "utf-8"
+
+        });
+
+    }
+    else
+    {
+
+        res.set({
+
+            'content-type' : "text/html",
+            'charset' : "utf-8"
+
+        });
+
+    }
+    next();
+
+});
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
