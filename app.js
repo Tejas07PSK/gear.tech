@@ -155,12 +155,7 @@ app.use('/:urlid', function (req, res, next) {
 app.use('/:urlid', function (req, res, next) {
 
     let id = req.params['urlid'];
-    if ((id === undefined) || (id === null) || !((/^[a-zA-Z0-9@*]{6}$/g).test(id)))
-    {
-        
-        return next(createError(404));
-
-    }
+    if ((id === undefined) || (id === null) || !((/^[a-zA-Z0-9@*]{6}$/g).test(id))) { return next(createError(404)); }
     next();
 
 });
