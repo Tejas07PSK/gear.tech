@@ -63,7 +63,7 @@ app.use('/api', function (req, res, next) {
             return;
 
         }
-        if (!((/^[a-zA-Z0-9@*]{6}$/).test(url_id))) {
+        if (!((/^[a-zA-Z0-9@*]{6}$/g).test(url_id))) {
 
             console.log("Invalid \'url_id\' request parameter !!");
             res.status(406);
@@ -107,6 +107,19 @@ app.use('/api', function (req, res, next) {
             return;
 
         }
+        if (!((/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig).test(url))) {
+
+            console.log("Mal-formed \'url\' request parameter !!");
+            res.status(406);
+            res.end(
+
+                JSON.stringify(new ro.ResObj("0", "The \'url\' passed as a request parameter is mal-formed !! (http - 406)", "")),
+                "utf-8", function () { console.log("Http conversation ended successfully !!"); }
+
+            );
+            return;
+
+        }
         return next();
 
     }
@@ -142,7 +155,7 @@ app.use('/:urlid', function (req, res, next) {
 app.use('/:urlid', function (req, res, next) {
 
     let id = req.params['urlid'];
-    if ((id === undefined) || (id === null) || !((/^[a-zA-Z0-9@*]{6}$/).test(id)))
+    if ((id === undefined) || (id === null) || !((/^[a-zA-Z0-9@*]{6}$/g).test(id)))
     {
 
         console.log("in");
