@@ -151,9 +151,20 @@ app.use('/:urlid', function (req, res, next) {
 });
 app.use('/:urlid', function (req, res, next) {
 
-    let id = req.params['urlid'];
-    if ((id === undefined) || (id === null) || !((/^[a-zA-Z0-9@*]{6}$/g).test(id))) { res.status(404); return next(createError(404)); }
-    next();
+    if (req.method === 'GET') {
+
+        let id = req.params['urlid'];
+        if ((id === undefined) || (id === null) || !((/^[a-zA-Z0-9@*]{6}$/g).test(id))) { console.log("Either no \'urlid\' param has been passed or the value of the \'urlid\' param might be invalid !!"); res.status(404); return next(createError(404)); }
+        return next();
+
+    }
+    else {
+
+        console.log("Http request method not allowed for the access \'URL\' !!");
+        res.status(405);
+        return next(createError(405));
+
+    }
 
 });
 app.use('/:urlid', redirect);
@@ -185,7 +196,7 @@ app.use('/', function (req, res, next) {
 });
 app.use('/', function (req, res, next) {
 
-    if (req.method === 'POST'){
+    if (req.method === 'POST') {
 
         let contype = req.headers['content-type'], url = req.body['url'];
         if ((contype === undefined) || (contype === null) || (contype !== 'application/x-www-form-urlencoded')) {
@@ -205,7 +216,7 @@ app.use('/', function (req, res, next) {
         return next();
 
     }
-    else{
+    else {
 
         console.log("Http request method not allowed for the access \'URL\' !!");
         res.status(405);
