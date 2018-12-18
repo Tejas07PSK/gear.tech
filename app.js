@@ -17,6 +17,7 @@ const ro = require('./resobj');
 //const indexRouter = require('./routes/index');
 //const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
+const redirect = require('./routes/redirect');
 
 const app = express();
 
@@ -115,6 +116,7 @@ app.use('/api', apiRouter);
 
 app.use('/:urlid', function (req, res, next) {
 
+    console.log(req.params);
     res.set({
 
         'content-type' : "text/html",
@@ -128,15 +130,19 @@ app.use('/:urlid', function (req, res, next) {
 app.use('/:urlid', function (req, res, next) {
 
     let id = req.params['urlid'];
+    console.log(req.params);
     if ((id === undefined) || (id === null) || !((/^[a-zA-Z0-9]{6}$/).test(id)))
     {
 
+        console.log("in");
         return next(createError(404));
 
     }
     next();
 
 });
+
+app.use('/:urlid', redirect);
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
