@@ -10,12 +10,12 @@
 
 const mongo = require("mongoose");
 const db = mongo.connection;
-const url = "mongodb://localhost:27017/gearUrlShortener";
+const url = (process.env.DB_URL) || ("mongodb://localhost:27017/gearUrlShortener");
 const options = {
 
     bufferCommands : true,
-    user : "palashsarkar",
-    pass : "tejas!!",
+    user : (process.env.DB_USERNAME) || ("palashsarkar"),
+    pass : (process.evn.DB_PASSWORD) || ("tejas!!"),
     autoIndex: false,
     //dbName : "gearUrlShortener",
     useNewUrlParser : true,
