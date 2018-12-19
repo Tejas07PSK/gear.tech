@@ -15,7 +15,7 @@ const options = {
 
     bufferCommands : true,
     user : (process.env.DB_USERNAME) || ("palashsarkar"),
-    pass : (process.evn.DB_PASSWORD) || ("tejas!!"),
+    pass : (process.env.DB_PASSWORD) || ("tejas!!"),
     autoIndex: false,
     //dbName : "gearUrlShortener",
     useNewUrlParser : true,
