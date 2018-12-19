@@ -16,7 +16,7 @@ const router = (require('express')).Router();
 router.get('/', function(req, res) {
 
     res.status(200);
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: 'Gear URL Shortener On Heroku' });
 
 });
 
