@@ -22,7 +22,7 @@ module.exports = {
                 (doc) => { console.log("Document insertion successful in collection \'Dashboard\' !!"); console.log(`Newly created doc is : \n ${doc}`); eff = obj.key_id; },
                 (err) => { console.log("Document insertion failed !! ERROR !!"); console.log(err); eff = false; }
 
-            );
+        );
         return (eff);
 
     },
