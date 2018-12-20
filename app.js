@@ -217,6 +217,7 @@ app.use('/', function (req, res, next) {
             return;
 
         }
+        req.body['url'] = trimUrlSlash(req.body['url']);
         return next();
 
     }
