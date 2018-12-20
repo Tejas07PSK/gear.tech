@@ -20,7 +20,7 @@ const test_obj = {
 };
 let inpKeyId = "e60g*N", inpURL = "https://www.gog.com", updtKeyId = "gst32*";
 
-(async () => { await conn.open() })();
+//(async () => { await conn.open() })();
 
 //(ops.createDoc(test_obj)).then((res) => { if (res !== false) { console.log(`Shortened URL Id : ${res}`); } else { console.log("URL not shortened !!"); } });
 
@@ -32,4 +32,4 @@ let inpKeyId = "e60g*N", inpURL = "https://www.gog.com", updtKeyId = "gst32*";
 
 //(ops.deleteDocByKeyId(updtKeyId)).then((res) => { console.log("Input \'key_id\' : " + updtKeyId); console.log("Deletion promise resolved !!"); console.log(`Status : ${res}`); });
 
-(async () => { await conn.close() })();
+//(async () => { await conn.close() })();
