@@ -18,8 +18,7 @@ function getRandomInclusive(min, max) {
 
 }
 
-function logic(hex, base64, uidx1, uidx2)
-{
+function logic(hex, base64, uidx1, uidx2) {
 
     const loop = function (idx, uidx, str) {
 
