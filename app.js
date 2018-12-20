@@ -31,6 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+function trimUrlSlash(){ return (((arguments[0]).charAt(arguments[0].length - 1) === '/') ? arguments[0].slice(0, -1) : arguments[0]); }
+
 app.use('/api', function (req, res, next) {
 
     res.set({
