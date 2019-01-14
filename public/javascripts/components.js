@@ -72,7 +72,7 @@ frm_btn.setAttribute("data-toggle", "tooltip");
 frm_btn.setAttribute("data-placement", "top");
 frm_btn.title = "Shorten";
 frm_btn.id = "sub_comp";
-frm_btn.className = "btn btn-default";
+frm_btn.className = "btn btn-warning";
 frm_btn.type = "button";
 frm_btn.style.border = "1px inset black";
 frm_btn.onmouseover = function () { this.style.animation = "example 0.1s linear 0s infinite alternate"; this.style.webkitAnimation = "example 0.1s linear 0s infinite alternate"; };
