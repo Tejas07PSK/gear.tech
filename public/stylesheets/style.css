@@ -1,8 +1,79 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*
+
+    Created on : 12 Jan, 2019, 1:33:49 AM
+    Author     : Tejas07PSK (Palash Sarkar)
+
+*/
+
+body
+{
+
+    position : absolute;
+    top : 0; left : 0; right : 0;
+    width : auto; height : auto;
+    margin : 0; padding : 0;
+    overflow-y : scroll; overflow-x : hidden;
+    border : 0 none transparent;
+    background-repeat : no-repeat;
+    background-size : cover;
+    display : block;
+
 }
 
-a {
-  color: #00B7FF;
+#app-name
+{
+
+    padding-top : 60px;
+    font-family : 'Courier';
+    font-weight : bold;
+    letter-spacing : -2px;
+    font-size : 70px;
+    color : orange;
+    float : left;
+    text-shadow : 4px -4px 2px darkslategray;
+    text-align : center;
+    transform : rotate(-2deg);
+    overflow : visible;
+
+}
+
+#typo
+{
+
+    padding-top : 55px;
+    font-family : 'Trebuchet MS';
+    font-weight : bolder;
+    letter-spacing : 1px;
+    font-size : 25px;
+    font-style : italic;
+    color : lightgray;
+    float : left;
+    text-shadow : -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    text-align : center;
+    overflow : visible;
+
+}
+
+@-webkit-keyframes example
+{
+
+    from { margin-bottom: 0; }
+    to { margin-bottom: 5px;  }
+
+}
+
+@-moz-keyframes example
+{
+
+    from { margin-bottom: 0; }
+    to { margin-bottom: 5px;  }
+
+}
+
+@keyframes example
+{
+
+    from { margin-bottom: 0; }
+    to { margin-bottom: 5px;  }
+
 }
