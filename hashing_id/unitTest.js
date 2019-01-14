@@ -13,6 +13,7 @@ const hash = require("./sha-1");
 const genId =  require("./generate-id");
 
 // modify this test array, for any custom test-cases.
+
 const test_case1 = [
 
     "", "abc", "abcd",
